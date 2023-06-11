@@ -86,7 +86,7 @@ systemd:
 
         [Service]
         Type=oneshot
-        RemainAfterExist=yes
+        RemainAfterExit=yes
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/ssh/sshd_config.d/10-custom.conf -o /etc/ssh/sshd_config.d/10-custom.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/modprobe.d/30_security-misc.conf -o /etc/modprobe.d/30_security-misc.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/sysctl.d/30_security-misc.conf -o /etc/sysctl.d/30_security-misc.conf
