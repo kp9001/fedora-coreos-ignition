@@ -25,6 +25,8 @@ systemd:
         [Service]
         Type=oneshot
         RemainAfterExit=yes
+        ExecStart=/usr/bin/sed -i 's/#DNS=/DNSSEC=1.1.1.1/g' /etc/systemd/resolved.conf
+        ExecStart=/usr/bin/sed -i 's/#FallbackDNS=/FallbackDNS=1.0.0.1/g' /etc/systemd/resolved.conf
         ExecStart=/usr/bin/sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
         ExecStart=/usr/bin/systemctl restart systemd-resolved
         ExecStart=/usr/bin/rpm-ostree install docker-compose firewalld qemu-guest-agent tuned unbound vim tmux parted
