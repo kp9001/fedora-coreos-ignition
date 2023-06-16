@@ -30,7 +30,7 @@ systemd:
         ExecStart=/usr/bin/sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
         ExecStart=/usr/bin/systemctl restart systemd-resolved
         ExecStart=/usr/bin/rpm-ostree update
-        ExecStart=/usr/bin/rpm-ostree install docker-compose firewalld qemu-guest-agent tuned unbound vim tmux 
+        ExecStart=/usr/bin/rpm-ostree install firewalld qemu-guest-agent tuned unbound
         ExecStart=/usr/bin/sed -i 's/nullok//g' /etc/pam.d/system-auth
         ExecStart=/usr/bin/mkdir -p /etc/ssh/sshd_config.d
         ExecStart=/usr/bin/mkdir -p /etc/systemd/system/NetworkManager.service.d
