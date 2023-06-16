@@ -27,7 +27,7 @@ systemd:
         RemainAfterExit=yes
         ExecStart=/usr/bin/sed -i 's/#DNSSEC=no/DNSSEC=yes/g' /etc/systemd/resolved.conf
         ExecStart=/usr/bin/systemctl restart systemd-resolved
-        ExecStart=/usr/bin/rpm-ostree install docker-compose firewalld qemu-guest-agent tuned unbound vim tmux 
+        ExecStart=/usr/bin/rpm-ostree install docker-compose firewalld qemu-guest-agent tuned unbound vim tmux parted
         ExecStart=/usr/bin/rpm-ostree override remove cifs-utils samba-common-libs samba-client-libs libsmbclient libwbclient samba-common sssd-krb5-common sssd-ipa sssd-nfs-idmap sssd-ldap sssd-client sssd-ad sssd-common sssd-krb5 sssd-common-pac
         ExecStart=/usr/bin/sed -i 's/nullok//g' /etc/pam.d/system-auth
         ExecStart=/usr/bin/mkdir -p /etc/ssh/sshd_config.d
@@ -35,6 +35,7 @@ systemd:
         ExecStart=/usr/bin/mkdir -p /etc/systemd/system/irqbalance.service.d
         ExecStart=/usr/bin/mkdir -p /etc/systemd/system/unbound.service.d
         ExecStart=/usr/bin/mkdir -p /etc/security/limits.d
+        ExecStart=/usr/bin/mkdir -p /etc/nginx/conf.d
         ExecStart=/usr/bin/mkdir -p /etc/unbound
         ExecStart=/usr/bin/mkdir -p /etc/tuned
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/ssh/sshd_config.d/10-custom.conf -o /etc/ssh/sshd_config.d/10-custom.conf
@@ -47,6 +48,7 @@ systemd:
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/systemd/zram-generator.conf -o /etc/systemd/zram-generator.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/systemd/system/NetworkManager.service.d/99-brace.conf -o /etc/systemd/system/NetworkManager.service.d/99-brace.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/systemd/system/irqbalance.service.d/99-brace.conf -o /etc/systemd/system/irqbalance.service.d/99-brace.conf
+        ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/nginx/conf.d/matrix.conf -o /etc/nginx/conf.d/matrix.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/systemd/system/unbound.service.d/override.conf -o /etc/systemd/system/unbound.service.d/override.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/unbound/unbound.conf -o /etc/unbound/unbound.conf
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/tuned/active_profile -o /etc/tuned/active_profile
