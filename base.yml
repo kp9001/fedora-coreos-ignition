@@ -40,6 +40,7 @@ systemd:
         ExecStart=/usr/bin/mkdir -p /etc/security/limits.d
         ExecStart=/usr/bin/mkdir -p /etc/unbound
         ExecStart=/usr/bin/mkdir -p /etc/tuned
+        ExecStart=/usr/bin/mkdir -p /mnt/blockstorage
         ExecStart=/usr/bin/curl https://raw.githubusercontent.com/kp9001/server-architecture/main/etc/fstab -o /etc/fstab
         ExecStart=/bin/systemctl disable systemd-resolved
         ExecStart=/bin/touch /var/lib/%N.stamp
